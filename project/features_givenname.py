@@ -146,7 +146,6 @@ print ('percentage of triphthongs =%.2f'%tri_percentage)
 
 #----------------------------------masculine and feminie---------------------
 #transforming variable
-mono_df['masculine'] = (mono_df['n.male'] / (mono_df['n.male'] + mono_df['n.female']))
-mono_df['feminine'] = (mono_df['n.female'] / (mono_df['n.male'] + mono_df['n.female']))
-"""
+df['masculine'] = (df['n.male'] / (df['n.male'] + df['n.female']))
+df['feminine'] = (df['n.female'] / (df['n.male'] + df['n.female']))
 
