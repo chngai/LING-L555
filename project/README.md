@@ -20,10 +20,10 @@ Wright, S., Hay, J., & Bent, T. (2005). Ladies ﬁrst? Phonology, frequency, and
 ## Coding:
   The following files are uploaded (refer to pdf file for details):
 
--1)givenname_01122021_mono.csv
--2)stats_givenname.py
--3)feature_givenname.py
+-1)givenname_01122021_mono.csv  
+-2)stats_givenname.py  
+-3)feature_givenname.py  
 
-  For file 1, it is the csv file for the program to run.
-  For file 2, it generates the plots and statistical model
-  For file 3, it generates the phonetic features, necessary for running analysis.
+  For file 1, it is the csv file for the program to run.  
+  For file 2, it generates the plots and statistical model  
+  For file 3, it generates the phonetic features, necessary for running analysis.  
