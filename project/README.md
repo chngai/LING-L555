@@ -5,16 +5,16 @@
 Name-gender association is evaluated using linear regression. The givenname database used in the current study is Chinese Name Database 1930-2008. This database covers the frequency of 1.2 billion Han Chinese population starting from 1930 to 2008. To my knowledge, forming the most comprehensive and extensive database of names to date to date. Gender biases are defined as the difference in the proportion of males and females consisting of a given character. All characters were subsequently converted to IPA transcription using an online translation tool from GitHub (https://github.com/Connum/npm-pinyin2ipa#readme). All translations were then verified by a native Mandarin Chinese speaker with linguistic background. All names were coded for their phonetic features, including vowel and tonal features, and their gender adaptation (maleness: 0-1/ femaleness: 0-1).
 
 ## References
-Cassidy, K. W., Kelly, M. H., & Sharoni, L. J. (1999). Inferring gender from name phonology. Journal of Experimental Psychology: General, 128(3), 362–381. https://doi.org/10.1037//0096-3445.128.3.362
-Cutler, A., Mcqueen, J., & Robinson, K. E. N. (2017). Sound Patterns of Men ’ s and Women ’ s Names. 26(2), 471–482.
-Moshin, N., & Kang, Y. (2018). Gender Phonology of Urdu First names. SPF2018.
-Pitcher, B. J., Mesoudi, A., & McElligott, A. G. (2013). Sex-Biased Sound Symbolism in English-Language First Names. PLoS ONE, 8(6), 1–6. https://doi.org/10.1371/journal.pone.0064825
-Sidhu, D. M., & Pexman, P. M. (2015). What’s in a name? Sound symbolism and gender in first names. PLoS ONE, 10(5), 1–22. https://doi.org/10.1371/journal.pone.0126809
-Slater, A. S., & Feinman, S. (1985). Gender and the phonology of north American first names. Sex Roles, 13(7–8), 429–440. https://doi.org/10.1007/BF00287953
-Sutton, L. (2016). Aliens Are Just Like Us: Personal Names in The Legion of Super-Heroes. Names, 64(2), 109–119. https://doi.org/10.1080/00277738.2016.1159446
-van de Weijer, J., Ren, G., van de Weijer, J., Wei, W., & Wang, Y. (2020). Gender identification in Chinese names. Lingua, 234. https://doi.org/10.1016/j.lingua.2019.102759
-Wong, K. W. Y., & Kang, Y. (2019). Sound symbolism of gender in Cantonese First names. 2129–2133.
-Wright, S., Hay, J., & Bent, T. (2005). Ladies ﬁrst? Phonology, frequency, and the naming conspiracy. https://doi.org/10.1515/ling.2005.43.3.531
+  Cassidy, K. W., Kelly, M. H., & Sharoni, L. J. (1999). Inferring gender from name phonology. Journal of Experimental Psychology: General, 128(3), 362–381. https://doi.org/10.1037//0096-3445.128.3.362
+  Cutler, A., Mcqueen, J., & Robinson, K. E. N. (2017). Sound Patterns of Men ’ s and Women ’ s Names. 26(2), 471–482.
+  Moshin, N., & Kang, Y. (2018). Gender Phonology of Urdu First names. SPF2018.
+  Pitcher, B. J., Mesoudi, A., & McElligott, A. G. (2013). Sex-Biased Sound Symbolism in English-Language First Names. PLoS ONE, 8(6), 1–6. https://doi.org/10.1371/journal.pone.0064825
+  Sidhu, D. M., & Pexman, P. M. (2015). What’s in a name? Sound symbolism and gender in first names. PLoS ONE, 10(5), 1–22. https://doi.org/10.1371/journal.pone.0126809
+  Slater, A. S., & Feinman, S. (1985). Gender and the phonology of north American first names. Sex Roles, 13(7–8), 429–440. https://doi.org/10.1007/BF00287953
+  Sutton, L. (2016). Aliens Are Just Like Us: Personal Names in The Legion of Super-Heroes. Names, 64(2), 109–119. https://doi.org/10.1080/00277738.2016.1159446
+  van de Weijer, J., Ren, G., van de Weijer, J., Wei, W., & Wang, Y. (2020). Gender identification in Chinese names. Lingua, 234. https://doi.org/10.1016/j.lingua.2019.102759
+  Wong, K. W. Y., & Kang, Y. (2019). Sound symbolism of gender in Cantonese First names. 2129–2133.
+  Wright, S., Hay, J., & Bent, T. (2005). Ladies ﬁrst? Phonology, frequency, and the naming conspiracy. https://doi.org/10.1515/ling.2005.43.3.531
 
 
 ## Coding:
