@@ -6,7 +6,7 @@ import re
 import math
 import seaborn as sns
 epi = ep.Epitran('cmn-Hans', cedict_file='cedict_1_0_ts_utf-8_mdbg.txt')
-df = pd.read_csv('givenname_01122021_mono.csv', delimiter =',')
+df = pd.read_csv('givenname.csv', delimiter =',')
 
 #convert characters to ipa
 #create new column and convert character column into ipa
@@ -129,6 +129,18 @@ for i in df['ipa']:
 		backednesses.append('center') 
 	elif re.findall (r'[^aəiyɤuoe]*[uoɤ][^aəiyɤuoe]*', i):   # u, o, and ɤ
 		backednesses.append('back')
+	elif re.findall (r'[^aəiyɤuoe]*[iye][aəiyɤuoe][^aəiyɤuoe]*', i):  #diphtong i, e, and y
+		backednesses.append('front')
+	elif re.findall (r'[^aəiyɤuoe]*[əa][aəiyɤuoe][^aəiyɤuoe]*', i):  #diphthong ə and a(isn't a front?)
+		backednesses.append('center') 
+	elif re.findall (r'[^aəiyɤuoe]*[uoɤ][aəiyɤuoe][^aəiyɤuoe]*', i):   #diphthong u, o, and ɤ
+		backednesses.append('back')
+	elif re.findall (r'[^aəiyɤuoe]*[iye][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):  #triphtong i, e, and y
+		backednesses.append('front')
+	elif re.findall (r'[^aəiyɤuoe]*[əa][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):  #triphthong ə and a(isn't a front?)
+		backednesses.append('center') 
+	elif re.findall (r'[^aəiyɤuoe]*[uoɤ][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):   #triphthong u, o, and ɤ
+		backednesses.append('back')
 	else: 
 		backednesses.append('missing')
 
@@ -140,15 +152,35 @@ for i in df['ipa']:
 		heights.append('middle') 
 	elif re.findall (r'[^aəiyɤuoe]*[a][^aəiyɤuoe]*', i):    #a
 		heights.append('low')
+	elif re.findall (r'[^aəiyɤuoe]*[iyuɤ][aəiyɤuoe][^aəiyɤuoe]*', i):  # diphthong i, y, u, and ɤ
+		heights.append('high')
+	elif re.findall (r'[^aəiyɤuoe]*[əeo][aəiyɤuoe][^aəiyɤuoe]*', i):    #diphthong ə,o, and e
+		heights.append('middle') 
+	elif re.findall (r'[^aəiyɤuoe]*[a][aəiyɤuoe][^aəiyɤuoe]*', i):    #diphthong a
+		heights.append('low')
+	elif re.findall (r'[^aəiyɤuoe]*[iyuɤ][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):  # triphthong i, y, u, and ɤ
+		heights.append('high')
+	elif re.findall (r'[^aəiyɤuoe]*[əeo][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):    #triphthong ə,o, and e
+		heights.append('middle') 
+	elif re.findall (r'[^aəiyɤuoe]*[a][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):    #triphthong a
+		heights.append('low')
 	else: #fail safe for missing vowel for height feature
 		heights.append('missing')
 
 
-#rounded feature
+#rounded feature for monophthong
 for i in df['ipa']:
 	if re.findall (r'[^aəiyɤuoe]*[uoy][^aəiyɤuoe]*', i):      #u, o, and y
 		roundednesses.append('rounded')
 	elif re.findall (r'[^aəiyɤuoe]*[iɤəae][^aəiyɤuoe]*', i):   #i, ɤ, ə, e, and a
+		roundednesses.append('unround')
+	elif re.findall (r'[^aəiyɤuoe]*[uoy][aəiyɤuoe][^aəiyɤuoe]*', i):      #diphthong u, o, and y
+		roundednesses.append('rounded')
+	elif re.findall (r'[^aəiyɤuoe]*[iɤəae][aəiyɤuoe][^aəiyɤuoe]*', i):   #diphthong i, ɤ, ə, e, and a
+		roundednesses.append('unround')
+	elif re.findall (r'[^aəiyɤuoe]*[uoy][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):      #triphthong u, o, and y
+		roundednesses.append('rounded')
+	elif re.findall (r'[^aəiyɤuoe]*[iɤəae][aəiyɤuoe][aəiyɤuoe][^aəiyɤuoe]*', i):   #triphthong i, ɤ, ə, e, and a
 		roundednesses.append('unround')
 	else:            #fail safe for missing vowel for height feature
 		roundednesses.append('missing')
@@ -156,6 +188,22 @@ for i in df['ipa']:
 df['vowel_backedness'] = backednesses
 df['vowel_height'] = heights
 df['vowel_roundedness'] = roundednesses
+
+
+#---------------------size correspondence--------------------------------------
+#tagging size
+sizes = []
+
+for i in df['ipa']:
+	if re.findall (r'[^aəiyɤuoe]*[i][^aəiyɤuoe]*', i):    #i, e, and y
+		sizes.append('small')
+	elif re.findall (r'[^aəiyɤuoe]*[a][^aəiyɤuoe]*', i):  #ə and a(isn't a front?)
+		sizes.append('large')
+	else: 
+		sizes.append('missing')
+
+df ['size'] = sizes
+
 
 
 #------------this is a line-----------------
@@ -180,4 +228,4 @@ print ('percentage of triphthongs =%.2f'%tri_percentage)
 #transforming variable
 df['masculine'] = (df['n.male'] / (df['n.male'] + df['n.female']))
 df['feminine'] = (df['n.female'] / (df['n.male'] + df['n.female']))
-
+df.to_csv (r'givename_16052022.csv', index = False, header=True)
